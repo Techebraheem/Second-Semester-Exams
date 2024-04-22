@@ -13,6 +13,6 @@
   tasks:
     - name: Verify PHP application
       uri:
-        url: http://127.0.0.1
+        url: http://10.0.2.15
         status_code: 200
       register: result
