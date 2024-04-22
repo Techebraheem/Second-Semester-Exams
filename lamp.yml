@@ -1,0 +1,18 @@
+
+- hosts: Slave
+  tasks:
+    - name: Copy bash script to Slave
+      copy:
+        src: /path/to/lamp.sh
+        dest: /tmp/lamp.sh
+
+    - name: Execute bash script
+      shell: bash /tmp/lamp.sh
+
+- hosts: Slave
+  tasks:
+    - name: Verify PHP application
+      uri:
+        url: http://127.0.0.1
+        status_code: 200
+      register: result
